@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- ====================================================================== -->
+  <!--                                                                        -->
+  <!--  JBoss, the OpenSource J2EE webOS                                      -->
+  <!--                                                                        -->
+  <!--  Distributable under LGPL license.                                     -->
+  <!--  See terms of license at http://www.gnu.org.                           -->
+  <!--                                                                        -->
+  <!-- ====================================================================== -->
+
+  <!-- $Id$ -->
+  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>JBossOSGi Bundles - Common Core</name>
+  <description>A JBossOSGi provided JBoss Common Core bundle</description>
+  
+  <groupId>org.jboss.osgi.bundles</groupId>
+  <artifactId>jboss-osgi-common-core</artifactId>
+  <packaging>bundle</packaging>
+
+  <version>2.2.11.SP1</version>
+
+  <!-- Parent -->
+  <parent>
+    <groupId>org.jboss.osgi</groupId>
+    <artifactId>jboss-osgi-parent</artifactId>
+    <version>1.0.1</version>
+  </parent>
+
+  <properties>
+    <version.jboss.common.core>2.2.11.SP1</version.jboss.common.core>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-common-core</artifactId>
+      <version>${version.jboss.common.core}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+            <Import-Package>
+              <!--system  -->
+              javax.naming*, 
+              javax.net*, 
+              javax.xml.namespace, 
+              javax.xml.parsers, 
+              javax.xml.transform*, 
+              org.w3c.dom, 
+              org.xml.sax*,
+              
+              <!-- import -->
+              org.jboss.logging,
+              
+              <!-- ignore -->
+              !org.apache.commons.httpclient, 
+              !org.apache.webdav.lib, 
+            </Import-Package>
+            <Embed-Transitive>true</Embed-Transitive>
+            <Embed-Dependency>
+              jboss-common-core;inline=false,
+            </Embed-Dependency>
+            <_exportcontents>
+              org.jboss.net.*;version=${version.jboss.common.core},
+              org.jboss.util*;version=${version.jboss.common.core},
+            </_exportcontents>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
