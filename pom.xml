@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.jboss.osgi</groupId>
     <artifactId>jboss-osgi-parent</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.5</version>
   </parent>
 
   <!-- Subversion -->
