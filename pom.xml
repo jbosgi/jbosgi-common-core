@@ -9,8 +9,6 @@
   <!--                                                                        -->
   <!-- ====================================================================== -->
 
-  <!-- $Id$ -->
-  
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -18,7 +16,7 @@
   <description>A JBossOSGi provided JBoss Common Core bundle</description>
   
   <groupId>org.jboss.osgi.common</groupId>
-  <artifactId>jbosgi-common-core</artifactId>
+  <artifactId>jboss-osgi-common-core</artifactId>
   <packaging>bundle</packaging>
 
   <version>2.2.17-SNAPSHOT</version>
@@ -57,7 +55,7 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Import-Package>
               <!--system  -->
               javax.naming*, 
