@@ -19,13 +19,13 @@
   <artifactId>jboss-osgi-common-core</artifactId>
   <packaging>bundle</packaging>
 
-  <version>2.2.18-SNAPSHOT</version>
+  <version>2.2.17.SP1-SNAPSHOT</version>
 
   <!-- Parent -->
   <parent>
     <groupId>org.jboss.osgi</groupId>
     <artifactId>jboss-osgi-parent</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
   </parent>
 
   <!-- Source -->
@@ -45,6 +45,12 @@
       <groupId>org.jboss</groupId>
       <artifactId>jboss-common-core</artifactId>
       <version>${version.jboss.common.core}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.jboss.logging</groupId>
+          <artifactId>jboss-logging-spi</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
 
@@ -67,7 +73,7 @@
               org.xml.sax*,
               
               <!-- import -->
-              org.jboss.logging;version="[2.0,3.0)",
+              org.jboss.logging;version="[3.0,4.0)",
               
               <!-- ignore -->
               !org.apache.commons.httpclient, 
